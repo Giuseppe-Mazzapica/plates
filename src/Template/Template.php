@@ -208,6 +208,20 @@ class Template
 
         return $this->sections[$name];
     }
+    
+    /**
+     * Echoes the content for a section block or return false if section is not available.
+     * @param  string $name Section name
+     * @return boolean
+     */
+    protected function hasSection($name)
+    {
+        if (isset($this->sections[$name])) {
+            echo $this->sections[$name];
+            return TRUE;
+        }
+        return FALSE;
+    }
 
     /**
      * Fetch a rendered template.
