@@ -233,7 +233,7 @@ class Template
     {
         $template = $this->engine->make($name);
         $template->sections = $this->sections;
-        return $template->render($name, $data);
+        return $template->render($data);
     }
 
     /**
