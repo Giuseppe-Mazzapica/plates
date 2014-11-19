@@ -217,7 +217,9 @@ class Template
      */
     protected function fetch($name, array $data = array())
     {
-        return $this->engine->render($name, $data);
+        $template = $this->engine->make($name);
+        $template->sections = $this->sections;
+        return $template->render($name, $data);
     }
 
     /**
@@ -228,7 +230,7 @@ class Template
      */
     protected function insert($name, array $data = array())
     {
-        echo $this->engine->render($name, $data);
+        echo $this->fetch($name, $data);
     }
 
     /**
